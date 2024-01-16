@@ -15,31 +15,17 @@ public class Deck {
     }
 
     private void fillDeck() {
+        char swords = 's';
+        char gold = 'g';
+        char beakers = 'b';
+        char clubs = 'c';
+
         for (int i = 0; i < 12; i++) {
-            char swords = 's';
             if (i != 7 && i != 8) {
                 deck.add(new Card(swords, i + 1));
-            }
-        }
-        for (int i = 0; i < 12; i++) {
-            char gold = 'g';
-            if (i != 7 && i != 8) {
                 deck.add(new Card(gold, i + 1));
-            }
-        }
-        for (int i = 0; i < 12; i++) {
-            char beakers = 'b';
-            if (i != 7 && i != 8) {
                 deck.add(new Card(beakers, i + 1));
-            }
-        }
-        for (int i = 0; i < 12; i++) {
-            char clubs = 'c';
-            if (i != 7 && i != 8) {
                 deck.add(new Card(clubs, i + 1));
-                System.out.println("!!!!!!!!!!!!!!!!!!!!!!!");
-                System.out.println(clubs);
-                System.out.println(i+1);
             }
         }
     }
@@ -62,22 +48,23 @@ public class Deck {
             }
         }
     }
-    
+
     //si no hay cartas en la mesa, descubre 4 cartas de la baraja
-    public void dealTableCards(){
-        for(int i=0; i<4; i++){
+    public HashSet<Card> dealTableCards() {
+        for (int i = 0; i < 4; i++) {
             Random rand = new Random();
-                int index = rand.nextInt(deck.size());
-                int j = 0;
-                for (Card card : deck) {
-                    if (j == index) {
-                        table.add(card);
-                        deck.remove(card);
-                        break;
-                    }
-                    j++;
+            int index = rand.nextInt(deck.size());
+            int j = 0;
+            for (Card card : deck) {
+                if (j == index) {
+                    table.add(card);
+                    deck.remove(card);
+                    break;
                 }
+                j++;
+            }
         }
+        return table;
     }
 
     public HashSet<Card> getDeck() {
@@ -87,5 +74,14 @@ public class Deck {
     public HashSet<Card> getTable() {
         return table;
     }
-    
+
+    protected void printDeck() {
+        System.out.println("Cards in the deck: " + deck.size());
+        int counter = 1;
+        for (Card c : deck) {
+            System.out.println(counter + ": " +c.getValue() + " palo: " + c.getSuit());
+            counter++;
+        }
+    }
+
 }

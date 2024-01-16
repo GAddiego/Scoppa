@@ -4,6 +4,7 @@
  */
 package ui;
 
+import java.awt.BorderLayout;
 import javax.swing.JFrame;
 
 /**
@@ -15,9 +16,13 @@ public class MainMenu extends javax.swing.JFrame {
     /**
      * Creates new form mainMenu
      */
+    GameScreen gameScreen;
+    
     public MainMenu() {
         initComponents();
-        
+        gameScreen = new GameScreen(this);
+        gameScreen.setVisible(false);
+        add(gameScreen, BorderLayout.CENTER);
     }
 
     /**
@@ -98,7 +103,7 @@ public class MainMenu extends javax.swing.JFrame {
                 .addComponent(newGame, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(changeUser, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(insructions, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(exit, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -147,7 +152,7 @@ public class MainMenu extends javax.swing.JFrame {
             .addGroup(panelPrincipalLayout.createSequentialGroup()
                 .addGap(14, 14, 14)
                 .addComponent(title)
-                .addGap(40, 40, 40)
+                .addGap(112, 112, 112)
                 .addGroup(panelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(buttons, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(panelPrincipalLayout.createSequentialGroup()
@@ -171,15 +176,14 @@ public class MainMenu extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+        
 
     private void newGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newGameActionPerformed
         
-        this.setVisible(false);
-        GameScreen gameScreen = new GameScreen();
+        panelPrincipal.setVisible(false);
+        System.out.println("añadiendo gamescreen");
         gameScreen.setVisible(true);
         
-        System.out.println("Mostrando pantalla de juego...");
-        System.out.println(gameScreen.isVisible());
     }//GEN-LAST:event_newGameActionPerformed
 
     private void insructionsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_insructionsActionPerformed

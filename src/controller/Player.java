@@ -5,10 +5,12 @@ import java.util.Set;
 
 public class Player {
 
-    HashSet<Card> hand = new HashSet<>();
-    HashSet<Card> gathered = new HashSet<>();
+    HashSet<Card> hand;
+    HashSet<Card> gathered;
 
     public Player() {
+        hand = new HashSet<>();
+        gathered = new HashSet<>();
     }
     
     public Set<Card> getHand() {
